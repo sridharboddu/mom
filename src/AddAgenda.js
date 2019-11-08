@@ -144,7 +144,7 @@ axios.post("https://minutes-of-meeting.herokuapp.com/add-agenda/",{
     
       let editHandler=(e)=>{
         e.preventDefault();
-        if(agendaItems.length){
+        if(agendaItem){
  
  axios.put(`https://minutes-of-meeting.herokuapp.com/add-agenda/${editid}/`,{
              agenda:agendaItem
