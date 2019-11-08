@@ -10,6 +10,8 @@ import {BrowserRouter,Route,Link} from 'react-router-dom';
 function CreateEvent(props) {
   let [eventName,setEventName]=useState("");
   let[date,setDate]=useState("");
+  let [email,setEmail]=useState(null)
+
   let[participants,setParticipants]=useState("");
   let[time,setTime]=useState("");
   let [participantList,setParticipantList]=useState("")
@@ -44,40 +46,40 @@ let[tokens,setTokens]=useState(localStorage.getItem("orderAppToken"))
     console.log(participantList)
 },[])
 
-let searchHandler=(e)=>{
+// let searchHandler=(e)=>{
 
 
-  if(e.target.value!==""){
+//   if(e.target.value!==""){
    
-    // console.log(participantList)
-    let requiredParticipants=participantList.filter(i=>{
-      let lower_case=i.toLowerCase();
-      let input_value=e.target.value.toLowerCase();
-      return lower_case.includes(input_value)
-    })
-    setSearchList(requiredParticipants)
-    // console.log(searchList)
-  }
- else{
-   setSearchList([])
- }
-}
+//     // console.log(participantList)
+//     let requiredParticipants=participantList.filter(i=>{
+//       let lower_case=i.toLowerCase();
+//       let input_value=e.target.value.toLowerCase();
+//       return lower_case.includes(input_value)
+//     })
+//     setSearchList(requiredParticipants)
+//     // console.log(searchList)
+//   }
+//  else{
+//    setSearchList([])
+//  }
+// }
 let selectHandler=(participantname)=>{
-      setSearchList([]);
+      // setSearchList([]);
    // setParticipantName(participantname)
 //  console.log(participantName)
  let existing=displayList.filter(i=>{
    return participantname===i;
  })
  if(existing.length===0){
-  setDisplayList([...displayList,participantname])
+  setDisplayList([...displayList,email])
   // console.log(displayList)
   }
   else
   {
     alert("participant is already added")
   }
-  document.getElementById("addparticipants").value=""
+  setEmail("")
 }
 let deleteParticipant=(id)=>{
   if(window.confirm("Are you sure you want to delete")){
@@ -91,10 +93,10 @@ let deleteParticipant=(id)=>{
 
 let eventHandler = e => {
   e.preventDefault();
+
 if(displayList.length){
   
-
-
+  
   // let da_ti= moment(`${date} ${time}`, 'YYYY-MM-DD HH:mm:ss').format();
 let da_ti=date+"T"+time+":00Z";
 
@@ -143,8 +145,11 @@ let da_ti=date+"T"+time+":00Z";
     ;
 
 }
+else
 alert("pleace add Participants")
 }
+
+
 // End
 //HTML UI Part
   return (
@@ -207,9 +212,12 @@ Choose your option
 </Select>
                  </div>
                  <div class="col s3">Participants:</div>
-                 <div class="col s9">
-                 <input id="addparticipants" type="text" class="validate create-input" autoComplete="off"    onChange={(e)=>searchHandler(e)}   />
+                 <div class="col s7">
+                 <input  class="validate  addparticipants" value={email} type="email"  autoComplete="off"    onChange={(e)=>setEmail(e.target.value)}   />
                     </div>
+                    <div class="col s2">
+          <a onClick={selectHandler}  class="btn-floating btn-small waves-effect waves-light agenda-addbtn"><i class="material-icons">add</i></a>
+        </div>
                     {
                        displayList.map((i,index)=>{
                         return(
@@ -222,19 +230,13 @@ Choose your option
                }
                 )
                     }
-                     {
-                   searchList.map(i=>
-                    <div class="add-part">
-                     <span class="chip" onClick={()=>selectHandler(i)}>{i}</span>
-                     </div>
-       )
-     }
+                    
                      <div class="col s12">
                      <button class=" btn  primary waves-effect waves-light right sub-btn ">Next</button>
 
                      </div>
-                   
-               </div>
+                     </div>
+            
               
                </form>
 

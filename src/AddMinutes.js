@@ -22,24 +22,23 @@ function AddMinutes(props) {
             }
             var id = localStorage.getItem("cur_id");
             console.log(id)
-            // if(!id){
-            //  props.history.push("./CreateEvent");
-            // }
+            if(!id){
+             props.history.push("./CreateEvent");
+            }
     })
  
     //add Items in API
     let AddMinutes=(e)=>{
         e.preventDefault();
         if(minutesItems.length){
+           
         console.log(minutesItems)
-        var id = localStorage.getItem("met_id");
+        var id = localStorage.getItem("cur_id");
         console.log(id)
        var spac=minutesItems.join("\r\n")
         
        var obj={
-        meeting_minutes: 
-             
-           
+        meeting_minutes:                           
                  minutesItems.map((i,index)=>{
                 //    console.log(i[0].id)
                      return(
@@ -61,8 +60,10 @@ function AddMinutes(props) {
       }
        )
     }
+    else
     alert("pleace add Minutes for the event ",<h2>{name}</h2>)
-        }
+}
+    
     //close ITEMS
  //add item in API 
  
@@ -91,7 +92,7 @@ function AddMinutes(props) {
  
             })
             setMinutesItem("")
-        }
+        }else
         alert("pleace Add Minutes for this event" ,<h2>{name}</h2>)
          }
  
@@ -158,6 +159,7 @@ function AddMinutes(props) {
            
            setShow(true)
         }
+        else
         alert("pleace give  input")
          }
                     
@@ -178,7 +180,7 @@ function AddMinutes(props) {
       {/* <i class="material-icons medium ">chevron_left</i> */}
       </div>
       <div class="col s5">
-      <h5 class="createmeet">Add Minutes({name})</h5>
+      <h5 class="createmeet">Add Minutes</h5>
       </div></div>
  
      

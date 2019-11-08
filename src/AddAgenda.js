@@ -34,6 +34,7 @@ const AddAgenda=(props)=>{
   
     e.preventDefault();
     if(agendaItems.length){
+       
    console.log(agendaItems)
    var id = localStorage.getItem("met_id");
    console.log(id)
@@ -65,15 +66,18 @@ const AddAgenda=(props)=>{
   
   )
 }
-alert("pleace add Agenda for the event ",<h2>{name}</h2>)
-        }
+else
+  alert("pleace add Agenda for the event ",<h2>{name}</h2>)
+}
+
+
    //close ITEMS
 //add item in API 
 
                   let addHandler=(e)=>{
        e.preventDefault();
        if(agendaItem.length){
-
+       
 axios.post("https://minutes-of-meeting.herokuapp.com/add-agenda/",{
             agenda:agendaItem
            },
@@ -98,8 +102,10 @@ axios.post("https://minutes-of-meeting.herokuapp.com/add-agenda/",{
            })
            setAgendaItem("")
         }
+        else
         alert("pleace Add Agenda for this event" ,<h2>{name}</h2>)
-         }
+    }
+
 
 //close add item
 //delete ITEM
@@ -166,6 +172,7 @@ axios.post("https://minutes-of-meeting.herokuapp.com/add-agenda/",{
                 setAgendaItem("")
                 setShow(true)
         }
+        else
         alert("pleace Add Agenda for this event" ,<h2>{name}</h2>)
     }          
 
