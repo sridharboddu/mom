@@ -12,8 +12,9 @@ function AddMinutes(props) {
     let[tokens,setTokens]=useState(localStorage.getItem("orderAppToken"))
     let[show,setShow]=useState(true)
     let[editid,setEditid]=useState("")
+    let[newpo,setNewpo]=useState();
     let[name,setName]=useState(localStorage.getItem("cur_name"))
-  
+  let [id,setId]=useState(localStorage.getItem("cur_id"))
     useEffect(()=>{
     
  
@@ -25,45 +26,145 @@ function AddMinutes(props) {
             if(!id){
              props.history.push("./CreateEvent");
             }
+           // console.log(id)
+           
     })
  
     //add Items in API
     let AddMinutes=(e)=>{
         e.preventDefault();
+       
         if(minutesItems.length){
-           
-        console.log(minutesItems)
-        var id = localStorage.getItem("cur_id");
-        console.log(id)
-       var spac=minutesItems.join("\r\n")
-        
-       var obj={
-        meeting_minutes:                           
-                 minutesItems.map((i,index)=>{
-                //    console.log(i[0].id)
-                     return(
-                         i[0].id
-                     )})
-           ,
-           id:id
-       }
-        console.log(obj) 
-        axios.post("https://minutes-of-meeting.herokuapp.com/Create-minutesList/",obj,
+        axios.get(`https://minutes-of-meeting.herokuapp.com/Create-minutesList/${id}/`,
         {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
         .then(resp=>{
-            localStorage.removeItem("met_id");
-         props.history.push("/UserDashboard");
-     
-       },
-       error=>{
-        alert(error)
-      }
-       )
+             console.log(resp.data.meeting_minutes)
+            
+             if (resp.data) {
+                    
+                    var id = localStorage.getItem("cur_id");
+                    console.log(id)
+                   var spac=minutesItems.join("\r\n")
+                    
+                   var obj={
+                    meeting_minutes:                           
+                             minutesItems.map((i,index)=>{
+                            //    console.log(i[0].id)
+                                 return(
+                                     i[0].id
+                                 )})
+                       ,
+                       id:id
+                   }
+                    console.log(obj) 
+                    axios.put(`https://minutes-of-meeting.herokuapp.com/Create-minutesList/${id}/`,obj,
+                    {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
+                    .then(resp=>{
+                        localStorage.removeItem("met_id");
+                     props.history.push("/UserDashboard");
+                 
+                   },
+                   error=>{
+                    alert(error)
+                  }
+                   )
+                } else {
+                    
+                var id = localStorage.getItem("cur_id");
+                console.log(id)
+                var spac=minutesItems.join("\r\n")
+                
+                var obj={
+                meeting_minutes:                           
+                     minutesItems.map((i,index)=>{
+                    //    console.log(i[0].id)
+                         return(
+                             i[0].id
+                         )})
+                ,
+                id:id
+                }
+                console.log(obj) 
+                axios.post("https://minutes-of-meeting.herokuapp.com/Create-minutesList/",obj,
+                {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
+                .then(resp=>{
+                localStorage.removeItem("met_id");
+                props.history.push("/UserDashboard");
+                
+                },
+                error=>{
+                alert(error)
+                }
+                )
+                }
+                
+            
+            })
+           
     }
     else
     alert("pleace add Minutes for the event ",<h2>{name}</h2>)
 }
+// if (resp.data) {
+//     console.log(miutesItems)
+//     var id = localStorage.getItem("cur_id");
+//     console.log(id)
+//    var spac=minutesItems.join("\r\n")
     
+//    var obj={
+//     meeting_minutes:                           
+//              minutesItems.map((i,index)=>{
+//             //    console.log(i[0].id)
+//                  return(
+//                      i[0].id
+//                  )})
+//        ,
+//        id:id
+//    }
+//     console.log(obj) 
+//     axios.put(`https://minutes-of-meeting.herokuapp.com/Create-minutesList/${id}/`,obj,
+//     {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
+//     .then(resp=>{
+//         localStorage.removeItem("met_id");
+//      props.history.push("/UserDashboard");
+ 
+//    },
+//    error=>{
+//     alert(error)
+//   }
+//    )
+// } else {
+//     console.log(miutesnItems)
+// var id = localStorage.getItem("cur_id");
+// console.log(id)
+// var spac=minutesItems.join("\r\n")
+
+// var obj={
+// meeting_minutes:                           
+//      minutesItems.map((i,index)=>{
+//     //    console.log(i[0].id)
+//          return(
+//              i[0].id
+//          )})
+// ,
+// id:id
+// }
+// console.log(obj) 
+// axios.post("https://minutes-of-meeting.herokuapp.com/Create-minutesList/",obj,
+// {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
+// .then(resp=>{
+// localStorage.removeItem("met_id");
+// props.history.push("/UserDashboard");
+
+// },
+// error=>{
+// alert(error)
+// }
+// )
+// }
+
+// })
+
     //close ITEMS
  //add item in API 
  
@@ -75,6 +176,7 @@ function AddMinutes(props) {
             },
             {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
             .then(resp=>{
+                console.log(resp.data)
                 
                    
                    
@@ -199,10 +301,10 @@ function AddMinutes(props) {
        {
            show?
        <div class="col s2">
-          <button onClick={addHandler}  class="btn-floating btn-small waves-effect waves-light agenda-addbtn"><i class="material-icons">add</i></button>
+          <a onClick={addHandler}  class="btn-floating btn-small waves-effect waves-light agenda-addbtn"><i class="material-icons">add</i></a>
         </div>:(
         <div class="col s2">
-          <button onClick={editHandler}  class="btn-floating btn-small waves-effect waves-light agenda-addbtn"><i class="material-icons">edit</i></button>
+          <a onClick={editHandler}  class="btn-floating btn-small waves-effect waves-light agenda-addbtn"><i class="material-icons">edit</i></a>
         </div>)
        }
                
