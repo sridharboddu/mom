@@ -1,0 +1,346 @@
+.process-bar
+{
+    margin-top: 300px;
+    
+}
+
+.datepicker-modal {
+margin-top: 150px !important;
+}
+.timepicker-modal {
+    margin-top: 150px !important;
+}
+
+.backgrond-col{
+    background-color: #f8f8f8;
+    padding: 52px;
+    width: 97%;
+    margin-left: 52px;
+}
+/* CreateEvent css */
+.create-card{
+    width: 93%;
+    margin: 52px;
+    /* margin-left: 100px; */
+    
+}
+.title-icon{
+    margin-top: 15px !important;
+    width: 65px !important;
+}
+.create-input{
+    height: 20px !important;
+    
+}
+.create-icon{
+   
+    /* margin-right: -24px;  */
+  
+    margin-left: -25px !important; 
+    color: #67a9fe !important; 
+}
+.pad-range{
+    padding-left: 20px !important;
+    padding-right: 70px !important;
+}
+.createmeet{
+   margin-top: 30px;
+   margin-right: 30px !important;
+}
+.create-form{
+    /* padding:60px 250px 60px 180px; */
+   margin-top: 20px;
+   margin-left: 271px;
+   width: 660px;
+   margin-bottom: 20px;
+  
+}
+.create-label{
+    /* width: 150px !important;  */
+    padding-left: 70px !important;
+    
+    }
+
+ 
+    .adj-inp{
+        width: 170px !important;
+    }
+    .adj-inp1{
+        width: 245px !important;
+    }
+.create-label2{
+    margin-top: 25px;
+}
+.progress{
+    margin-left: 10px !important;
+}
+
+.determinate{
+    width:50% !important;
+    background-color: #67a9fe !important;
+    padding-left: 170px !important;
+
+}
+.progress{
+    width:95%;
+    margin-left: 56px;
+}
+.add-part{
+    margin-left: 190px;
+}
+.create-badge{
+    background-color: #f5f5f5;
+    border-radius: 10px;
+}
+a.per{
+    color:#686868 !important;
+}
+a.here{
+  color:#F62E2E !important;
+}
+
+
+/* .create-btn{
+    width:30% !important;
+    background-color: #67a9fe !important;
+    border-radius: 10px;
+    /* margin-left: 50px !important; 
+} */
+    /* Add Agenda */
+    .agnd-inp{
+        width: 460px !important;
+    }
+
+.add-agen{
+    
+    margin-left: 90px !important;  
+}
+.add-form{
+   
+    margin-top: 10px;
+   margin-left: 240px;
+   width: 660px;
+   padding-bottom: 20px;
+}
+.agenda-label{
+    margin-top: 25px !important;
+  
+}
+.lst{
+    padding-left: 40px;
+}
+.sub-btn{
+    width:20% !important;
+    background-color: #67a9fe !important;
+    border-radius: 10px;
+    /* margin-right: 80px; */
+    margin-top:30px; 
+}
+.agenda-addbtn{
+    background-color: #67a9fe !important;
+    margin-left: 40px;
+    
+}
+.agd-lis{
+margin-left: 140px !important;
+}
+.agenda-editbtn{
+     margin-top: 20px !important;
+      
+}
+.agenda-delbtn{
+    margin-top: 20px !important; 
+   
+}
+.disb-input{
+  color:black !important;
+}
+ /* Margins */
+ .mar-r{
+     margin-right: 80px;
+ }
+ .pad-lr{
+     /* padding:0px 90px 0px 40px !important; */
+ }
+
+
+  /* dashboard */
+   .userdash-btn{
+    background-color: #67a9fe !important;
+    position: relative;
+    left: 80px;
+}
+
+
+
+ .addmints{
+    color:white
+}
+
+  .material-icons{
+    color:#bfbfbf;
+ }
+
+ .createbtn{
+    width:60px !important;
+    
+    margin-left: 10px;
+ }
+ .btn-floating{
+    margin-top: 10px;
+ }
+ .card-br{
+    border-radius:10px;
+    background-color:white;
+   
+ }
+ .row{
+    margin-bottom: 20px;
+ }
+ .header{
+    box-shadow: none !important;
+ }
+ 
+ .cd1{
+    height:220px;
+    width:90%;
+ }
+ .cd2{
+    height:300px !important;
+    width:90%;
+ }
+ .card-cal{
+     width: 117%;
+     /* margin-left: 30px; */
+ }
+ .mkuy{
+     /* padding: 40px; */
+   /* text-align: left  */
+   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+ }
+ .list{
+    list-style-type: initial !important;
+    text-align: left;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ }
+ .card-content{
+     margin-left: 20px;
+    text-align: left;
+    font-size: 22px;
+    color: #090909;
+    font-family: Roboto;
+ }
+ h6{
+    font-size: 24px;
+    color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ }
+ .collect{
+    font-size: 22px;
+    float:right;
+    margin-top: 10px;
+ }
+ .cd3{
+    height:695px;
+    width: 95%;
+    
+ }
+ .dropdown-trigger{
+    border-radius: 100px;
+}
+
+/* sidenav CSS */
+ .sidenv-img{
+    padding-left: 50px;
+    margin-top: 20px;
+}
+.sidenav-create{
+   color:rgba(6, 6, 7, 0.808);
+   font-size: 18px;
+}
+.add-btn-side{
+    margin-top: 10px !important;
+}
+
+ .hdr-srch{
+    position:relative;
+    left:30px;
+    /* padding-left: 40px; */
+}
+
+.userdash-btn{
+    background-color: #67a9fe !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* rough */
+
+ /* .material-icons{
+    color:#bfbfbf;
+    
+}
+.createbtn{
+    width:60px !important; 
+    margin-left: 10px;
+}
+.btn-floating{
+    margin-top: 20px;
+}
+.card{
+    border-radius:10px;  
+    background-color:white;
+}
+.card-title{
+    color:#090909;
+   
+}
+.card-cal{
+    height:"530px"!important;
+    width:"100%"!important;
+}
+
+
+
+.mkuy{
+    
+   text-align: left 
+}
+.user-con{
+   
+}
+.list{
+    list-style-type: initial !important;
+    text-align: left;
+}
+.card-content{
+     margin-left: 20px; 
+    text-align: left;
+    font-size: 20px;
+    color: #090909;
+    font-family: Roboto;
+    
+}
+h6{
+    font-size: 24px;
+    color: #000000;
+    font-family: Roboto !important;
+    
+}
+.collection-item{
+    font-size: 22px;
+} */

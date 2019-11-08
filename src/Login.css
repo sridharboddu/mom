@@ -1,0 +1,89 @@
+/* login{
+background-image: url(login1.png)
+} */
+.signbtn{
+    width:100%;
+}
+.Login-heading{
+text-align: left;
+}
+h6{
+color: gray;
+}
+.frm{
+    margin-left:32px;
+    width:391px
+}
+.loginform{
+    margin-top:212px ;
+    width:424px
+}
+.login-bg {
+    background-image: url("login.png");
+    height: 750px;
+    width: 1330px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.mart15{
+    margin-top: 15px !important;
+}
+.inputstl{
+    border: 1px solid black;
+    width:400px;
+    height: 50px;
+    border-radius: 5px; 
+    
+}
+
+
+.u-feild{
+    width: 85% !important;
+    border-bottom: 0px !important;
+    box-shadow: none !important;
+}
+
+.t-aleft{
+    text-align: left ;
+}
+
+
+.u-label{
+background-color: white;
+    padding: 6px !important;
+    margin-left: 0px !important;
+    width: 50px !important;
+    color: black !important;
+
+}
+.s-color{
+    color: #C9C5C5;
+}
+.up-label{
+    background-color: white;
+        padding: 6px !important;
+        margin-left: 0px !important;
+        width: 80px !important;
+        color: black !important;
+    }
+    .urp-label{
+        background-color: white;
+            padding: 6px !important;
+            margin-left: 0px !important;
+            width: 100px !important;
+            color: black !important;
+        }
+
+    .signbtn{
+    background-color:#67a9fe !important;
+}
+.mart30{
+    margin-top:30px !important;
+}
+.padt30{
+    padding-top: 30px !important;
+}
+.input-field 
+.prefix.active{
+    color: #67a9fe !important;
+}
