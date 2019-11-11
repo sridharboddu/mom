@@ -130,7 +130,7 @@ today = yyyy + '-' + mm + '-' + dd;
          <h6><b>Minutes of last meeting</b></h6>
         <div>
          <ul >
-              <li class="list">No DAta Found </li>
+              <li class="list">No Data</li>
               
               <a href="#!" class="collect">More Minutes</a>
          </ul>

@@ -65,13 +65,14 @@ let[tokens,setTokens]=useState(localStorage.getItem("orderAppToken"))
 //  }
 // }
 let selectHandler=(participantname)=>{
-      // setSearchList([]);
-   // setParticipantName(participantname)
-//  console.log(participantName)
+  console.log(email)
+    if(email){
+      
  let existing=displayList.filter(i=>{
    return participantname===i;
  })
  if(existing.length===0){
+   console.log(email)
   setDisplayList([...displayList,email])
   // console.log(displayList)
   }
@@ -80,7 +81,10 @@ let selectHandler=(participantname)=>{
     alert("participant is already added")
   }
   setEmail("")
+}else alert("please enter Valid Email")
 }
+
+
 let deleteParticipant=(id)=>{
   if(window.confirm("Are you sure you want to delete")){
   let participants=Object.assign([],displayList)
