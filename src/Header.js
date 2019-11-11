@@ -52,7 +52,7 @@ const Header=(props)=>{
             <form>
         <div class="input-field" style={{position:"relative",left:'100px'}}>          
           {/* <label class="label-icon" for="search"><i class="material-icons">search</i></label>  */}
-          <i class="material-icons prefix hdr-srch">search</i>
+          <i class="material-icons prefix ">search</i>
           <input id="search" type="text" style={{width:'300px'}} placeholder="    Search"  required/> 
           <a class="waves-effect waves-light btn white black-text">Search</a>        
         </div>

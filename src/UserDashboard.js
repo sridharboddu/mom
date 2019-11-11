@@ -60,7 +60,11 @@ today = yyyy + '-' + mm + '-' + dd;
      
         
      },[])
-    
+     let minuteHandler=(id,name)=>{
+      localStorage.setItem("cur_id",id);
+      localStorage.setItem("cur_name",name);
+      props.history.push("./AddMinutes");
+     }
      
      
     return (
@@ -91,8 +95,7 @@ today = yyyy + '-' + mm + '-' + dd;
          { 
       event.length?
       event.map((i,index)=>{
-         localStorage.setItem("cur_id",i.id);
-         localStorage.setItem("cur_name",i.meeting_name);
+        
          return(
          
          <div class="row">
@@ -106,7 +109,7 @@ today = yyyy + '-' + mm + '-' + dd;
             <i class="material-icons left ">access_time</i><p>{i.meeting_start_date_time.substring(11,16)}</p>
             </div>
             <div class="col s6">
-            <button class=" btn  primary waves-effect waves-light right userdash-btn mar-r"><Link  to="/Addminutes" class="addmints">Addminutes</Link></button> 
+            <button class=" btn  primary waves-effect waves-light right userdash-btn mar-r" onClick={(e)=>minuteHandler(i.id,i.meeting_name)}>Addminutes</button> 
             </div></div>
             
  )
@@ -127,7 +130,7 @@ today = yyyy + '-' + mm + '-' + dd;
          <h6><b>Minutes of last meeting</b></h6>
         <div>
          <ul >
-              <li class="list">Sorry it's In progress </li>
+              <li class="list">No DAta Found </li>
               
               <a href="#!" class="collect">More Minutes</a>
          </ul>

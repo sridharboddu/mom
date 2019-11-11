@@ -32,9 +32,10 @@ const Register=(props)=>{
 })
 .then(
   resp=> {
+    alert("Registered succesfully")
      props.history.push("/Login");
   },(error=>{
-   alert(error);
+   alert("Invalid email 0r password");
 })
  )
 

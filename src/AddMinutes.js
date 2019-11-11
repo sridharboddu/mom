@@ -39,8 +39,7 @@ function AddMinutes(props) {
         {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
         .then(resp=>{
              console.log(resp.data.meeting_minutes)
-            
-             if (resp.data) {
+           
                     
                     var id = localStorage.getItem("cur_id");
                     console.log(id)
@@ -68,8 +67,9 @@ function AddMinutes(props) {
                     alert(error)
                   }
                    )
-                } else {
-                    
+                 
+                },error=>{
+                //    alert("error")
                 var id = localStorage.getItem("cur_id");
                 console.log(id)
                 var spac=minutesItems.join("\r\n")
@@ -96,74 +96,16 @@ function AddMinutes(props) {
                 alert(error)
                 }
                 )
-                }
+                
                 
             
-            })
+               }   )
            
     }
     else
-    alert("pleace add Minutes for the event ",<h2>{name}</h2>)
+    alert("pleace add Minutes for the event ",<p>{name}</p>)
 }
-// if (resp.data) {
-//     console.log(miutesItems)
-//     var id = localStorage.getItem("cur_id");
-//     console.log(id)
-//    var spac=minutesItems.join("\r\n")
-    
-//    var obj={
-//     meeting_minutes:                           
-//              minutesItems.map((i,index)=>{
-//             //    console.log(i[0].id)
-//                  return(
-//                      i[0].id
-//                  )})
-//        ,
-//        id:id
-//    }
-//     console.log(obj) 
-//     axios.put(`https://minutes-of-meeting.herokuapp.com/Create-minutesList/${id}/`,obj,
-//     {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
-//     .then(resp=>{
-//         localStorage.removeItem("met_id");
-//      props.history.push("/UserDashboard");
- 
-//    },
-//    error=>{
-//     alert(error)
-//   }
-//    )
-// } else {
-//     console.log(miutesnItems)
-// var id = localStorage.getItem("cur_id");
-// console.log(id)
-// var spac=minutesItems.join("\r\n")
 
-// var obj={
-// meeting_minutes:                           
-//      minutesItems.map((i,index)=>{
-//     //    console.log(i[0].id)
-//          return(
-//              i[0].id
-//          )})
-// ,
-// id:id
-// }
-// console.log(obj) 
-// axios.post("https://minutes-of-meeting.herokuapp.com/Create-minutesList/",obj,
-// {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
-// .then(resp=>{
-// localStorage.removeItem("met_id");
-// props.history.push("/UserDashboard");
-
-// },
-// error=>{
-// alert(error)
-// }
-// )
-// }
-
-// })
 
     //close ITEMS
  //add item in API 
@@ -195,7 +137,7 @@ function AddMinutes(props) {
             })
             setMinutesItem("")
         }else
-        alert("pleace Add Minutes for this event" ,<h2>{name}</h2>)
+        alert("pleace Add Minutes for this event" ,<p>{name}</p>)
          }
  
  //close add item
@@ -282,7 +224,7 @@ function AddMinutes(props) {
       {/* <i class="material-icons medium ">chevron_left</i> */}
       </div>
       <div class="col s5">
-      <h5 class="createmeet">Add Minutes</h5>
+     <h5 class="createmeet">Add Minutes for {name}</h5>
       </div></div>
  
      

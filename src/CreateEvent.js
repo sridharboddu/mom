@@ -93,7 +93,13 @@ let deleteParticipant=(id)=>{
 
 let eventHandler = e => {
   e.preventDefault();
-
+   var today = new Date();
+         var dt = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  console.log(date,dt)
+  if(date < dt){
+alert("give appropriate date")
+  }else
+ {
 if(displayList.length){
   
   
@@ -139,7 +145,7 @@ let da_ti=date+"T"+time+":00Z";
     props.history.push("/AddAgenda");
     },
     error=>{
-      alert(error)
+      alert("pleace add Valid Participants emails")
     }
     )
     ;
@@ -147,6 +153,7 @@ let da_ti=date+"T"+time+":00Z";
 }
 else
 alert("pleace add Participants")
+ }
 }
 
 
