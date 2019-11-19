@@ -31,7 +31,7 @@ function Calendarexample(props) {
    setTitle(k)
 // setShow(true)
 // instance.open();
- alert("Event-name:"+k+"----Time"+j)
+ alert("Event-name:"+k+"----Time:"+j)
 //  document.getElementById('modal1');
 
 
