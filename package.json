@@ -12,6 +12,7 @@
     "react-big-calendar": "^0.22.1",
     "react-confirm-alert": "^2.4.1",
     "react-dom": "^16.9.0",
+    "react-event-calendar": "^0.3.0",
     "react-materialize": "^3.4.1",
     "react-moment": "^0.9.6",
     "react-redirect": "^1.0.0",

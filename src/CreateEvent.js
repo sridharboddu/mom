@@ -4,21 +4,36 @@ import nouislider from 'nouislider';
 import './style.css';
 import axios from 'axios';
 import Header from './Header';
-import { Modal, Button,Select } from 'react-materialize';
+
 import {BrowserRouter,Route,Link} from 'react-router-dom';
+import {Preloader,Row,Col,Select } from 'react-materialize'
 
 function CreateEvent(props) {
   let [eventName,setEventName]=useState("");
   let[date,setDate]=useState("");
   let [email,setEmail]=useState(null)
-
+  let [duration,setDuration]=useState(null)
   let[participants,setParticipants]=useState("");
   let[time,setTime]=useState("");
   let [participantList,setParticipantList]=useState("")
   let [searchList,setSearchList]=useState([])
-  let [displayList,setDisplayList]=useState([])
+  let [displayList,setDisplayList]=useState([localStorage.getItem("userEmail")])
   let [participantName,setParticipantName]=useState()
+  let [proces,setProces]=useState(false)
 let[tokens,setTokens]=useState(localStorage.getItem("orderAppToken"))
+var[mintime,setMintime]=useState("")
+var[mindate,setMindate]=useState("")
+var today = new Date();
+ 
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+var hours=today.getHours(); // => 9
+var min=today.getMinutes();
+
+today= yyyy + '-' + mm + '-' + dd;
+var today1=hours+':'+min;
+
 
   // Functionlity Part
   useEffect(()=>{
@@ -46,24 +61,7 @@ let[tokens,setTokens]=useState(localStorage.getItem("orderAppToken"))
     console.log(participantList)
 },[])
 
-// let searchHandler=(e)=>{
 
-
-//   if(e.target.value!==""){
-   
-//     // console.log(participantList)
-//     let requiredParticipants=participantList.filter(i=>{
-//       let lower_case=i.toLowerCase();
-//       let input_value=e.target.value.toLowerCase();
-//       return lower_case.includes(input_value)
-//     })
-//     setSearchList(requiredParticipants)
-//     // console.log(searchList)
-//   }
-//  else{
-//    setSearchList([])
-//  }
-// }
 let selectHandler=(participantname)=>{
   console.log(email)
     if(email){
@@ -74,7 +72,7 @@ let selectHandler=(participantname)=>{
  if(existing.length===0){
    console.log(email)
   setDisplayList([...displayList,email])
-  // console.log(displayList)
+  console.log(displayList)
   }
   else
   {
@@ -96,16 +94,17 @@ let deleteParticipant=(id)=>{
 
 
 let eventHandler = e => {
-  e.preventDefault();
-   var today = new Date();
-         var dt = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-  console.log(date,dt)
-  if(date < dt){
-alert("give appropriate date")
-  }else
- {
-if(displayList.length){
   
+  e.preventDefault();
+//    var today = new Date();
+//          var dt = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+//   console.log(date,dt)
+//   if(date < dt){
+// alert("give appropriate date")
+//   }else
+//  {
+if(displayList.length&&today1.length){
+  setProces(true)
   
   // let da_ti= moment(`${date} ${time}`, 'YYYY-MM-DD HH:mm:ss').format();
 let da_ti=date+"T"+time+":00Z";
@@ -126,12 +125,13 @@ let da_ti=date+"T"+time+":00Z";
   };
   
    
-  console.log(obj)
+  console.log(obj,duration)
   axios
     .post("https://minutes-of-meeting.herokuapp.com/create-meeting/", {
       meeting_name: eventName,
       meeting_start_date_time: da_ti,
       meeting_location: "bangalore",
+      meeting_duration:duration,
       description: "scrum",
       meeting_participant: displayList.map(i => {
         
@@ -143,28 +143,32 @@ let da_ti=date+"T"+time+":00Z";
     {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}}) 
     //  .post(`https://minutes-of-meeting.herokuapp.com/create-event/${tokens}`,obj)
     .then(resp =>{
+      setProces(false)
       console.log(resp.data);
     localStorage.setItem("met_id",resp.data.id);
     localStorage.setItem("met_name",resp.data.meeting_name);
     props.history.push("/AddAgenda");
     },
     error=>{
+      setProces(false)
       alert("pleace add Valid Participants emails")
     }
     )
-    ;
+    
 
 }
 else
 alert("pleace add Participants")
  }
-}
-
+// }
+console.log(today1)
 
 // End
 //HTML UI Part
   return (
+    
     <div>
+      
         <Header />
         <div class="row backgrond-col">
 
@@ -179,32 +183,51 @@ alert("pleace add Participants")
              <div class="col s5">
              <h5 class="createmeet">Create Meeting</h5>
              </div></div>
+             {proces?
+ <Row >
+   <Col s={12} >
+ <Col s={3}>
+ <Preloader flashing  />
+ </Col>
+ <Col s={3}>
+ <Preloader flashing  />
+ </Col>
+ <Col s={3}>
+ <Preloader flashing />
+ </Col>
+ <Col s={3}>
+ <Preloader flashing />
+ </Col>
+ </Col>
+ </Row>
 
+:(
              <form class="create-form " onSubmit={(e)=>eventHandler(e)}>
-             
-               
+              
              <div class="create-label ">
              <h5 class="col s12 right-align">0/2</h5></div>
              <div class="progress">
          <div class="determinate" ></div>
      </div>
+     
+               
                <div class="row">
                  <div class="col s3 create-label2 ">Event name:</div>
                  <div class="col s9"> <input type="text"  autoComplete="off" onChange={(e)=>setEventName(e.target.value)} required  /></div>
                  <div class="col s6">
                     <div class="col s6 create-label2">Date:</div>
                <div class="col s6">            
-                         <input type="date" class="adj-inp"  onChange={(e)=>setDate(e.target.value)} autoComplete="off" required></input>
+                         <input type="date" class="adj-inp" min={today} onChange={(e)=>setDate(e.target.value)} autoComplete="off" required></input>
                         </div>
                         </div>
                <div class="col s6"><div class="col s2 create-label2">Time:</div>
                <div class="col s6">            
-               <input type="time"  class="adj-inp1" onChange={(e)=>setTime(e.target.value)} autoComplete="off"  required></input>
+               <input type="time"  class="adj-inp1 "  min={today1}  onChange={(e)=>setTime(e.target.value)} autoComplete="off"  required></input>
                         </div></div>
                         <div class="col s3 create-label2">Event Duration:</div>
                  <div class="col s9"> 
-                 <Select onChange={"value"}>
-<option value="" disabled>
+                 <Select onChange={(e)=>setDuration(e.target.value)}>
+<option value="" >
 Choose your option
 </option>
 <option value="30">
@@ -222,7 +245,7 @@ Choose your option
 
 </Select>
                  </div>
-                 <div class="col s3">Participants:</div>
+                 <div class="col s3 create-label2">Participants:</div>
                  <div class="col s7">
                  <input  class="validate  addparticipants" value={email} type="email"  autoComplete="off"    onChange={(e)=>setEmail(e.target.value)}   />
                     </div>
@@ -230,6 +253,8 @@ Choose your option
           <a onClick={selectHandler}  class="btn-floating btn-small waves-effect waves-light agenda-addbtn"><i class="material-icons">add</i></a>
         </div>
                     {
+                      
+
                        displayList.map((i,index)=>{
                         return(
                       <div class="add-part">
@@ -251,16 +276,15 @@ Choose your option
               
                </form>
 
-             
+)
+                  }
           </div>
         </div>
+
     </div>
   )
 }
 
-CreateEvent.propTypes = {
-
-}
 
 export default CreateEvent
 

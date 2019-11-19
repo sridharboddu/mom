@@ -2,7 +2,8 @@ import React ,{useState,useEffect}from 'react';
 import axios from 'axios';
 
 import './Login.css';
-import {ProgressBar,Row,Col} from 'react-materialize'
+import './style.css';
+import {Preloader,Row,Col} from 'react-materialize'
 import {BrowserRouter,Route,withRouter,Link} from 'react-router-dom';
 
 
@@ -55,12 +56,29 @@ else{
   return(
     <div>
 {proces?
-  <Row class="process-bar">
+ <Row >
+   <Col s={12} >
+ <Col s={3}>
+ <Preloader flashing  />
+ </Col>
+ <Col s={3}>
+ <Preloader flashing  />
+ </Col>
+ <Col s={3}>
+ <Preloader flashing />
+ </Col>
+ <Col s={3}>
+ <Preloader flashing />
+ </Col>
+ </Col>
+ </Row>
+//   <Row class="process-bar">
 
-<Col s={12}>
-<ProgressBar/>
-</Col>
-</Row>:(
+// <Col s={12}>
+// <ProgressBar/>
+// </Col>
+// </Row>
+:(
      <div class="login-bg" >
     <div class="row">
       <div class="col s7"></div>

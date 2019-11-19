@@ -23,7 +23,7 @@ const Header=(props)=>{
     <div class="nav-wrapper black-text white">
       <a href="#" class="brand-logo center"></a>      
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <SideNav trigger={  <li> <i class="material-icons" style={{paddingLeft:"15px"}}>menu</i></li>  } options={{closeOnClick: true}} >
+      <SideNav trigger={  <li> <i class="material-icons" >menu</i></li>  } options={{closeOnClick: true}} >
        
        <div class="row">
           <div class="col s5">

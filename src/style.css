@@ -3,6 +3,11 @@
     margin-top: 300px;
     
 }
+.card{
+    box-shadow: 0px 3px 6px #00000029 !important;
+    height: 604px;
+    /* width: 1202px; */
+ }
 
 .datepicker-modal {
 margin-top: 150px !important;
@@ -63,13 +68,16 @@ margin-top: 150px !important;
 
  
     .adj-inp{
-        width: 170px !important;
+        width: 160px !important;
     }
     .adj-inp1{
-        width: 245px !important;
+        width: 232px !important;
+        position: relative;
+        left:20px
     }
 .create-label2{
-    margin-top: 25px;
+    /* margin-top: 25px; */
+    font-size: 24px;
 }
 .progress{
     margin-left: 10px !important;
@@ -198,6 +206,21 @@ margin-left: 140px !important;
     background-color:white;
    
  }
+ .card-br{
+    border-radius:10px;
+    background-color:white;
+    height:315px  !important;
+    margin-top: 52px;
+    width: 90%;
+ }
+
+ .card-br1{
+    border-radius:10px;
+    background-color:white;
+     height: 223px;
+     overflow: scroll;
+     width:90%;
+ }
  .row{
     margin-bottom: 20px;
  }
@@ -205,18 +228,18 @@ margin-left: 140px !important;
     box-shadow: none !important;
  }
  
- .cd1{
+ /* .cd1{
     height:220px;
     width:90%;
  }
  .cd2{
     height:300px !important;
     width:90%;
- }
+ } */
  .card-cal{
-     width: 117%;
-     /* margin-left: 30px; */
- }
+    /* height:"530px"!important; */
+    width:117%!important;
+}
  .mkuy{
      /* padding: 40px; */
    /* text-align: left  */
@@ -245,7 +268,7 @@ margin-left: 140px !important;
     margin-top: 10px;
  }
  .cd3{
-    height:695px;
+    height:580px;
     width: 95%;
     
  }
@@ -276,12 +299,25 @@ margin-left: 140px !important;
     background-color: #67a9fe !important;
 }
 
+/* register */
+.frm1{
+    margin-left:22px;
+    width:391px
+}
 
+.urp-label1{
+    background-color: white;
+        padding: 6px !important;
+        margin-left: 0px !important;
+        width: 130px !important;
+        color: black !important;
+    }
 
+/* header */
 
-
-
-
+.nav{
+    box-shadow: 0px 3px 6px #00000029 !important;
+}
 
 
 

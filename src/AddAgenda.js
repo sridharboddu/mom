@@ -200,10 +200,11 @@ axios.post("https://minutes-of-meeting.herokuapp.com/add-agenda/",{
          
          <form class="add-form" onSubmit={addAgenda} >
          <div class="create-label ">
-             <h5 class="col s12 right-align">0/2</h5></div>
+             <h5 class="col s12 right-align">2/2</h5></div>
              <div class="progress">
          <div class="determinate" ></div>
      </div>
+     
         <div class="row">
         <div class="col s3 create-label2 ">AddAgenda:</div>
                

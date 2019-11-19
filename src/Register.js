@@ -79,7 +79,7 @@ const Register=(props)=>{
     <div class="input-field inputstl padt15 col s12 t-aleft mart30">
       <input placeholder=". . . . ."  required  class="validate u-feild" type="password"autoComplete="off" onChange={(e)=>setRpassword(e.target.value)}/>
       <i class="material-icons prefix validate right s-color">lock</i>
-      <label class="active urp-label" for="first_name2">Re-password</label>
+      <label class="active urp-label1" for="first_name2">confirm password</label>
       <Link to="/Login" class="right">Already have an account?Signin</Link>
     </div>
 			
