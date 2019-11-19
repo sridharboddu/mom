@@ -48,7 +48,7 @@ const Profile=(props)=>{
 
 
  <div class="col s4 ">
-      <div class="card procrd darken-1">
+      <div class="card1 procrd darken-1">
         <div class="card-content  black-text">
         <img src="numberofmeetings.png" class="icn"/>
       
@@ -64,7 +64,7 @@ const Profile=(props)=>{
 
     
     <div class="col s4 ">
-      <div class="card procrd darken-1">
+      <div class="card1 procrd darken-1">
         <div class="card-content   black-text">
         <img src="minutes.png" class="icn"/>
 
@@ -80,7 +80,7 @@ const Profile=(props)=>{
 
     
     <div class="col s4 ">
-      <div class="card procrd darken-1">
+      <div class="card1 procrd darken-1">
         <div class="card-content black-text ">
                 {/* <div class="  cardc "> */}
         <img src="decisions.png" class="icn"/>
@@ -100,7 +100,7 @@ const Profile=(props)=>{
   <div class="row">
 
     <div class="col s4 ">
-      <div class="card procrd darken-1">
+      <div class="card1 procrd darken-1">
         <div class="card-content  black-text">
         <img src="ideas.png" class="icn"/>
         <div class="cardval">
@@ -114,7 +114,7 @@ const Profile=(props)=>{
 
     
     <div class="col s4 ">
-      <div class="card procrd darken-1">
+      <div class="card1 procrd darken-1">
         <div class="card-content  black-text">
         <img src="actionitems.png" class="icn"/>
         <div class="cardval">
@@ -129,7 +129,7 @@ const Profile=(props)=>{
 
     
     <div class="col s4 ">
-      <div class="card procrd darken-1">
+      <div class="card1 procrd darken-1">
         <div class="card-content  black-text">
         <img src="todaysmeeting.png" class="icn"/>
         <div class="cardval">
