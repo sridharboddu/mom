@@ -54,11 +54,11 @@ const Header=(props)=>{
 
        
    </SideNav>
-        {/* <li> <i class="material-icons" style={{paddingLeft:"15px"}}>menu</i></li>                */}
+        
         <li>
             <form>
         <div class="input-field" style={{position:"relative",left:'100px'}}>          
-          {/* <label class="label-icon" for="search"><i class="material-icons">search</i></label>  */}
+         
           <i class="material-icons prefix ">search</i>
           <input id="search" type="text" style={{width:'300px'}} placeholder="    Search"  required/> 
           <a class="waves-effect waves-light btn white black-text">Search</a>        
@@ -99,7 +99,7 @@ const Header=(props)=>{
   </nav>
 
    
-  {/* <div class="container s12"> */}
+ 
   <div class="createbtn col s1">
   { props.enable ?
     <Link to="/CreateEvent" class="btn-floating btn-small waves-effect waves-light blue left"><i class="material-icons ">add</i></Link>
@@ -111,7 +111,7 @@ const Header=(props)=>{
 
  }
  
-  {/* <Link to="/CreateEvent" class="btn-floating btn-small waves-effect waves-light blue left"><i class="material-icons ">add</i></Link> */}
+  
   </div>
   </div>
         

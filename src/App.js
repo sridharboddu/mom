@@ -18,19 +18,11 @@ import AddMinutes from './AddMinutes';
 
 
 function App() {
-  //  let[loggedIn,setLoggedIn]=useState(false)
+ 
   return (
     <BrowserRouter>
     <div className="App">
-    {/* <CreateEvent/> */}
-     {/* <AddAgenda/> */}
-
- {/* <Router>
-   <Switch>
-     <Login  exact path='/'/>
-     <Calenderview path='/Calenderview'/>
-   </Switch>
- </Router> */}
+   
    <Route exact path="/" component={Register}/>
    <Route exact path="/Login" component={Login}/>
    <Route path="/UserDashboard" component={UserDashboard}/>
@@ -39,6 +31,7 @@ function App() {
    <Route path="/Listevents" component={Lisevents}/>
    <Route path="/Profile" component={Profile}/>
    <Route path="/AddMinutes" component={AddMinutes}/>
+   
     </div>
     </BrowserRouter>
   );

@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+ import React,{useState,useEffect} from 'react';
 import PropTypes from 'prop-types';
 import nouislider from 'nouislider';
 import './style.css';
@@ -23,9 +23,10 @@ function CreateEvent(props) {
 let[tokens,setTokens]=useState(localStorage.getItem("orderAppToken"))
 var[mintime,setMintime]=useState("")
 var[mindate,setMindate]=useState("")
+let[show,setShow]=useState(true);
 var today = new Date();
  
-var dd = String(today.getDate()).padStart(2, '0');
+var dd = String(today.getDate() ).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 var yyyy = today.getFullYear();
 var hours=today.getHours(); // => 9
@@ -96,17 +97,11 @@ let deleteParticipant=(id)=>{
 let eventHandler = e => {
   
   e.preventDefault();
-//    var today = new Date();
-//          var dt = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-//   console.log(date,dt)
-//   if(date < dt){
-// alert("give appropriate date")
-//   }else
-//  {
+
 if(displayList.length&&today1.length){
   setProces(true)
   
-  // let da_ti= moment(`${date} ${time}`, 'YYYY-MM-DD HH:mm:ss').format();
+ 
 let da_ti=date+"T"+time+":00Z";
 
 
@@ -141,7 +136,7 @@ let da_ti=date+"T"+time+":00Z";
       })
     },
     {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}}) 
-    //  .post(`https://minutes-of-meeting.herokuapp.com/create-event/${tokens}`,obj)
+   
     .then(resp =>{
       setProces(false)
       console.log(resp.data);
@@ -160,11 +155,31 @@ let da_ti=date+"T"+time+":00Z";
 else
 alert("pleace add Participants")
  }
-// }
+
 console.log(today1)
 
 // End
 //HTML UI Part
+
+
+let checkhandler=(e)=>{
+  
+  if(today==date){
+    if(e<=today1){
+
+document.getElementById("fld").innerHTML="pls check the time";
+    }
+    else{
+      setTime(e)
+      document.getElementById("fld").innerHTML="";
+    }
+
+  }
+  else{
+    setTime(e)
+    document.getElementById("fld").innerHTML="";
+  }
+}
   return (
     
     <div>
@@ -177,8 +192,8 @@ console.log(today1)
           <div class="row">
 
              <div class="col s1 title-icon">
-             <Link to="/UserDashboard"> <i class="material-icons medium ">chevron_left</i></Link>
-             {/* <i class="material-icons medium ">chevron_left</i> */}
+             <Link to="/UserDashboard"> <i class="material-icons medium arw-icon ">chevron_left</i></Link>
+            
              </div>
              <div class="col s5">
              <h5 class="createmeet">Create Meeting</h5>
@@ -214,21 +229,34 @@ console.log(today1)
                <div class="row">
                  <div class="col s3 create-label2 ">Event name:</div>
                  <div class="col s9"> <input type="text"  autoComplete="off" onChange={(e)=>setEventName(e.target.value)} required  /></div>
+                
                  <div class="col s6">
                     <div class="col s6 create-label2">Date:</div>
-               <div class="col s6">            
+                   
+                    
+                        <div class="col s6">        
                          <input type="date" class="adj-inp" min={today} onChange={(e)=>setDate(e.target.value)} autoComplete="off" required></input>
                         </div>
                         </div>
+
+                      
+                        
                <div class="col s6"><div class="col s2 create-label2">Time:</div>
-               <div class="col s6">            
-               <input type="time"  class="adj-inp1 "  min={today1}  onChange={(e)=>setTime(e.target.value)} autoComplete="off"  required></input>
+               <div class="col s6">  
+               {
+                 date.length?
+               <input type="time"  class="adj-inp1"      onChange={(e)=>checkhandler(e.target.value)} autoComplete="off"  required></input>
+:(
+               <input type="time"  class="adj-inp1" disabled     onChange={(e)=>checkhandler(e.target.value)} autoComplete="off"  required></input>
+   )   }  <label id="fld" class="tym-fld"></label>
                         </div></div>
+
                         <div class="col s3 create-label2">Event Duration:</div>
                  <div class="col s9"> 
-                 <Select onChange={(e)=>setDuration(e.target.value)}>
-<option value="" >
-Choose your option
+                 <Select onChange={(e)=>setDuration(e.target.value)} required>
+                 
+<option value="">
+select your choice
 </option>
 <option value="30">
 30Minutes
@@ -286,5 +314,4 @@ Choose your option
 }
 
 
-export default CreateEvent
-
+export default CreateEvent;

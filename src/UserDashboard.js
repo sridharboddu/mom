@@ -16,17 +16,15 @@ function UserDashboard(props) {
    let[minutes,setMinutes]=useState([])
    let [proces,setProces]=useState(true)
    let [last,setLast]=useState()
-    
+     
    useEffect(()=>{
+      console.log(props)
       let name=localStorage.getItem('userName');
          if(!localStorage.length){
             props.history.push("./");
-         }
-            
-        
-        
-        
-
+         }      
+         var ops="1"
+      localStorage.setItem("opas",ops);   
         
      },[])
 
@@ -34,7 +32,7 @@ function UserDashboard(props) {
      {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
     .then(resp=>{  
        setProces(false)
-       // console.log(resp.data)
+     
      
        var today = new Date();
       var dd = String(today.getDate()).padStart(2, '0');
@@ -46,8 +44,7 @@ function UserDashboard(props) {
            setEvent(resp.data.filter(i=>{
              let comp=i.meeting_start_date_time;
              let compr=comp.substring(0,10)
-             // console.log(compr)
-             // console.log(comp)
+             
                 return (
 
                    today==compr
@@ -60,7 +57,7 @@ function UserDashboard(props) {
            {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
            .then(min=>
               {
-               //   console.log(min)
+              
                  setMinutes(min.data)
                 
            axios.get("https://minutes-of-meeting.herokuapp.com/add-minutes/",
@@ -71,41 +68,29 @@ function UserDashboard(props) {
                  var tess= event.map(i=>{
 
                   return  minutes.filter(j=>{
-                     // console.log(i.id,j.id)
+                   
                      return i.id==j.id
                   })[0]
                })
                
-               //console.log(tess)
-      
+              
      
                if(tess[0]&&minute.length)
                {
                   setLast(minute.filter(ele=>{
                      return tess[0].meeting_minutes.indexOf(ele.id) !=  -1;
                                   }))
-      //           setLast(tess[0].meeting_minutes.map(i=>{
-      // console.log(i)
-      //          return minute.filter(j=>{
-      //             console.log(j)
-      //             return i==j.id
-      //          })
-      //          }))
+     
             }
                
-             //  console.log(last)
- 
+           
 });
            });
 
     }
     
     )
-// if(last&&last.indexOf.length){
-//    var result= last.filter(i=>{
-//       return arr.indexOf()
-//    })
-// }
+
 
     
    
@@ -126,18 +111,7 @@ function UserDashboard(props) {
       props.history.push("./AddMinutes");
      }
      
-   //   axios.gect(`https://minutes-of-meeting.herokuapp.com/Create-minutesList/${event.id}/`,
-   //      {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
-   //      .then(resp=>{
-   //          const dat=resp.data;
-   //          console.log(dat)
-   //      })
-  
-
-
-
    
-   // console.log(minuteid)9:03 AM
 
      
     return (
@@ -145,18 +119,15 @@ function UserDashboard(props) {
       
     
         <div>
-            <div >
+         
+            <div class="dash" style={{opacity:localStorage.getItem("opas")}} >
 
   <Header enable={true} />
 
 
  <div class="user-con">
  <div class="row backgrond-col" >
- {/* <div class="createbtn col s1" >
-   <div>
- <Link to="/CreateEvent" class="btn-floating btn-small waves-effect waves-light blue left"><i class="material-icons ">add</i></Link>
- </div>
- </div> */}
+ 
  <div class=" col s11 " >
 <div class="row spc">
 <div class="col s4">
@@ -174,7 +145,7 @@ function UserDashboard(props) {
  </Col></Row>:(
       event.length?
       event.map((i,index)=>{
-         // console.log(i)
+        
         
          return(
          
@@ -226,13 +197,7 @@ function UserDashboard(props) {
             
             :(<li class="list">No Data</li>)
             }
-
-            
-              
-              {/* <a href="#!" class="collect">More Minutes</a> */}
-
-
-
+                                    
          </ul>
          </div>
        </div>
@@ -242,14 +207,13 @@ function UserDashboard(props) {
 <div class="col s8 ">
    <div class="card  card-cal">
        <div class="cd3">
-       <Calendarexample/>
+       <Calendarexample />
        </div>
        </div>
        </div>
 </div>
    </div>
-   {/* </div> */}
-   {/* </div > */}
+   
 </div>
 </div>
 </div>

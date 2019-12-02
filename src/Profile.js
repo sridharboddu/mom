@@ -14,7 +14,7 @@ const Profile=(props)=>{
 <div>
 <Header />
 <div class="row backgrond-col">
-{/* <div class="col s11 m11 l11 xl11 "> */}
+
 <div class="card create-card">
 
 <div class="row">
@@ -82,9 +82,9 @@ const Profile=(props)=>{
     <div class="col s4 ">
       <div class="card1 procrd darken-1">
         <div class="card-content black-text ">
-                {/* <div class="  cardc "> */}
+              
         <img src="decisions.png" class="icn"/>
-                {/* </div> */}
+               
         <div class="cardval">
           <span class="card-title val-user">99</span>
           <p>Decisions</p>

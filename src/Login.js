@@ -32,7 +32,7 @@ const Login=(props)=>{
 .then(
   resp=> {
     setProces(false)
-//  console.log(resp)
+
  if (!resp.data)
  {
    alert("You are not authorized to perform this action");
@@ -72,12 +72,7 @@ else{
  </Col>
  </Col>
  </Row>
-//   <Row class="process-bar">
 
-// <Col s={12}>
-// <ProgressBar/>
-// </Col>
-// </Row>
 :(
      <div class="login-bg" >
     <div class="row">

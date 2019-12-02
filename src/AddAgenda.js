@@ -45,7 +45,7 @@ const AddAgenda=(props)=>{
         
       
             agendaItems.map((i,index)=>{
-           //    console.log(i[0].id)
+          
                 return(
                     i[0].id
                 )})
@@ -83,10 +83,7 @@ axios.post("https://minutes-of-meeting.herokuapp.com/add-agenda/",{
            },
            {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
            .then(resp=>{
-        //        setAgendaItems([...agendaItems,resp.data])
-               
-        //    })
-                  
+    
                 axios.get("https://minutes-of-meeting.herokuapp.com/add-agenda/",
                 {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}
                 })
@@ -151,10 +148,7 @@ axios.post("https://minutes-of-meeting.herokuapp.com/add-agenda/",{
             },
             {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}})
             .then(resp=>{
-                //        setAgendaItems([...agendaItems,resp.data])
-                       
-                //    })
-                          
+               
                         axios.get("https://minutes-of-meeting.herokuapp.com/add-agenda/",
                         {headers: {'Content-Type': 'application/json', 'Authorization':`Token ${tokens}`}
                         })
@@ -183,13 +177,13 @@ axios.post("https://minutes-of-meeting.herokuapp.com/add-agenda/",{
         <Header/>
         <div class="row backgrond-col">
 
-<div class="card">
+<div class="card add_scrl">
 
   <div class="row">
 
      <div class="col s1 title-icon">
-     <Link to="/CreateEvent"> <i class="material-icons medium ">chevron_left</i></Link>
-     {/* <i class="material-icons medium ">chevron_left</i> */}
+     <Link to="/CreateEvent"> <i class="material-icons medium arw-icon ">chevron_left</i></Link>
+  
      </div>
      <div class="col s5">
      <h5 class="createmeet">Create Meeting</h5>
@@ -230,7 +224,7 @@ axios.post("https://minutes-of-meeting.herokuapp.com/add-agenda/",{
   { 
       
          agendaItems.map((i,index)=>{
-        //    console.log(i[0].id)
+      
              return(
                  <div class="row pad-lr">
                  <div class="col s8">

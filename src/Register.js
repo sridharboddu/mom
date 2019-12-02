@@ -72,7 +72,7 @@ const Register=(props)=>{
       <input placeholder=". . . . ."  required  class="validate u-feild" type="password"autoComplete="off" onChange={(e)=>setPassword(e.target.value)}/>
       <i class="material-icons prefix validate right s-color">lock</i>
       <label class="active up-label" for="first_name2">Password</label>
-      {/* <a onClick={forgetHandler} class="right">Already have an account?Signin</a> */}
+     
     </div>
 
 

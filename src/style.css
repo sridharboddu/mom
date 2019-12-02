@@ -8,6 +8,10 @@
     height: 604px;
     /* width: 1202px; */
  }
+ .pnts{
+    overflow: scroll;
+    height:100px;
+}
 
 .datepicker-modal {
 margin-top: 150px !important;
@@ -26,7 +30,7 @@ margin-top: 150px !important;
 .create-card{
     width: 93%;
     margin: 52px;
-    /* margin-left: 100px; */
+   
      height: 714px;
 }
 .title-icon{
@@ -38,9 +42,7 @@ margin-top: 150px !important;
     
 }
 .create-icon{
-   
-    /* margin-right: -24px;  */
-  
+     
     margin-left: -25px !important; 
     color: #67a9fe !important; 
 }
@@ -53,7 +55,7 @@ margin-top: 150px !important;
    margin-right: 30px !important;
 }
 .create-form{
-    /* padding:60px 250px 60px 180px; */
+   
    margin-top: 20px;
    margin-left: 271px;
    width: 660px;
@@ -61,12 +63,14 @@ margin-top: 150px !important;
   
 }
 .create-label{
-    /* width: 150px !important;  */
+    
     padding-left: 70px !important;
     
     }
 
- 
+ .add_scrl{
+     overflow:scroll;
+ }
     .adj-inp{
         width: 160px !important;
     }
@@ -76,9 +80,16 @@ margin-top: 150px !important;
         left:20px
     }
 .create-label2{
-    /* margin-top: 25px; */
+   
     font-size: 24px;
 }
+.tym-fld{  
+      padding-left: 18px;  
+      width: 150px; 
+     
+       margin-top: 0px;   
+     color: red !important;
+    }
 .progress{
     margin-left: 10px !important;
 }
@@ -112,12 +123,7 @@ a.here{
 }
 
 
-/* .create-btn{
-    width:30% !important;
-    background-color: #67a9fe !important;
-    border-radius: 10px;
-    /* margin-left: 50px !important; 
-} */
+
     /* Add Agenda */
     .agnd-inp{
         width: 460px !important;
@@ -145,7 +151,7 @@ a.here{
     width:20% !important;
     background-color: #67a9fe !important;
     border-radius: 10px;
-    /* margin-right: 80px; */
+   
     margin-top:30px; 
 }
 .agenda-addbtn{
@@ -171,9 +177,7 @@ margin-left: 140px !important;
  .mar-r{
      margin-right: 80px;
  }
- .pad-lr{
-     /* padding:0px 90px 0px 40px !important; */
- }
+ 
 
 
   /* dashboard */
@@ -183,7 +187,10 @@ margin-left: 140px !important;
     left: 80px;
 }
 
-
+.cal_agnda_list{
+    overflow: scroll;
+    height: 100px;
+}
 
  .addmints{
     color:white
@@ -227,22 +234,36 @@ margin-left: 140px !important;
  .header{
     box-shadow: none !important;
  }
+ .arw-icon{
+    color: #797676;
+}
+.arw-icon1{
+    color: #797676;
+    margin-right: 5px;
+    height:200px;
+}
+
  
- /* .cd1{
-    height:220px;
-    width:90%;
- }
- .cd2{
-    height:300px !important;
-    width:90%;
- } */
  .card-cal{
-    /* height:"530px"!important; */
+    
     width:117%!important;
 }
+.mdlpop{
+    padding-left: 40px !important;
+    margin-bottom: 20px;
+    
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.cal-agda{  
+      color:#615e5e;
+          width: 160px;
+        }
+.mdl-titl{
+    margin-top: 3px;
+}
+
  .mkuy{
-     /* padding: 40px; */
-   /* text-align: left  */
+   
    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
  }
  .list{
@@ -292,7 +313,7 @@ margin-left: 140px !important;
  .hdr-srch{
     position:relative;
     left:30px;
-    /* padding-left: 40px; */
+  
 }
 
 .userdash-btn{
@@ -319,68 +340,3 @@ margin-left: 140px !important;
     box-shadow: 0px 3px 6px #00000029 !important;
 }
 
-
-
-
-
-
-
-
-
-
- /* rough */
-
- /* .material-icons{
-    color:#bfbfbf;
-    
-}
-.createbtn{
-    width:60px !important; 
-    margin-left: 10px;
-}
-.btn-floating{
-    margin-top: 20px;
-}
-.card{
-    border-radius:10px;  
-    background-color:white;
-}
-.card-title{
-    color:#090909;
-   
-}
-.card-cal{
-    height:"530px"!important;
-    width:"100%"!important;
-}
-
-
-
-.mkuy{
-    
-   text-align: left 
-}
-.user-con{
-   
-}
-.list{
-    list-style-type: initial !important;
-    text-align: left;
-}
-.card-content{
-     margin-left: 20px; 
-    text-align: left;
-    font-size: 20px;
-    color: #090909;
-    font-family: Roboto;
-    
-}
-h6{
-    font-size: 24px;
-    color: #000000;
-    font-family: Roboto !important;
-    
-}
-.collection-item{
-    font-size: 22px;
-} */

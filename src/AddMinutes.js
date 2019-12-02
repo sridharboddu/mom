@@ -24,11 +24,9 @@ function AddMinutes(props) {
         }
         const now = new Date()
         const end = new Date(localStorage.getItem("en_time"))
+        console.log(end)
         const start = new Date(localStorage.getItem("cur_time"))
-        if (now >= start && now <= end) {
-
-           
-        
+        if (now >= start && now <= end) {     
 
 
             var id = localStorage.getItem("cur_id");
@@ -54,20 +52,12 @@ function AddMinutes(props) {
                                     return resp.data && resp.data.meeting_minutes && resp.data.meeting_minutes.indexOf(ele.id) != -1;
                                 })
                                 console.log(result);
-                                // setMinutesItems([result]);
+                               
                                 result.map(ele => {
                                     var arr = [ele]
                                     setMinutesItems(minutesItems => ([...minutesItems, arr]));
                                 })
-                                
-                                // resp.data.meeting_minutes.map((i) => {
-                                //     console.log(list)
-                                //     setMinutesItems([...minutesItems, list.data.filter((j) => {
-
-                                //         return i == j.id
-                                //     })])
-                                // })
-
+                             
                             })
                     })
 
@@ -102,7 +92,7 @@ function AddMinutes(props) {
                     var obj = {
                         meeting_minutes:
                             minutesItems.map((i, index) => {
-                                //    console.log(i[0].id)
+                               
                                 return (
                                     i[0].id
                                 )
@@ -125,7 +115,7 @@ function AddMinutes(props) {
                         )
 
                 }, error => {
-                    //    alert("error")
+                    
                     var id = localStorage.getItem("cur_id");
                     console.log(id)
                     var spac = minutesItems.join("\r\n")
@@ -133,7 +123,7 @@ function AddMinutes(props) {
                     var obj = {
                         meeting_minutes:
                             minutesItems.map((i, index) => {
-                                //    console.log(i[0].id)
+                              
                                 return (
                                     i[0].id
                                 )
@@ -198,10 +188,7 @@ alert("sorry! cannot add minutes outside meeting scheduled time", props.history.
                             console.log(result);
                            
                             setMinutesItems([...minutesItems, result]);
-                            // setMinutesItems([...minutesItems, list.data.filter((j) => {
-
-                            //     return resp.data.id == j.id
-                            // })])
+                          
                         })
 
 
@@ -283,13 +270,13 @@ alert("sorry! cannot add minutes outside meeting scheduled time", props.history.
          <Header/>
          <div class="row backgrond-col">
  
- <div class="card">
+ <div class="card add_scrl">
  
    <div class="row">
  
       <div class="col s1 title-icon">
-      <Link to="/UserDashboard"> <i class="material-icons medium ">chevron_left</i></Link>
-      {/* <i class="material-icons medium ">chevron_left</i> */}
+      <Link to="/UserDashboard"> <i class="material-icons medium arw-icon">chevron_left</i></Link>
+     
       </div>
       <div class="col s5">
      <h5 class="createmeet">Add Minutes for {name}</h5>

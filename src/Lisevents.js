@@ -28,7 +28,7 @@ function Lisevents(props) {
               <th>meeting_start_date_time</th>
               <th>meeting_location</th>
               <th>description</th>
-              {/* <th>participant_email</th> */}
+            
           </tr>
         </thead>
         <tbody>
@@ -40,7 +40,7 @@ function Lisevents(props) {
             <td>{i.meeting_start_date_time}</td>
             <td>{i.meeting_location}</td>
             <td>{i.description}</td>
-            {/* <td>{i.participant_email}</td> */}
+         
           
           </tr>
                    )}
