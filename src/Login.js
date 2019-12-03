@@ -23,7 +23,7 @@ const Login=(props)=>{
     }
    })
   let LoginHandler=(e)=>{
-    setProces(true)
+    // setProces(true)
     e.preventDefault();
     axios.post("https://minutes-of-meeting.herokuapp.com/api-token-auth/",{
  email,
@@ -31,7 +31,7 @@ const Login=(props)=>{
 })
 .then(
   resp=> {
-    setProces(false)
+    // setProces(false)
 
  if (!resp.data)
  {
@@ -44,8 +44,8 @@ else{
   props.history.push("/UserDashboard");
 }
 },(error=>{
-  setProces(false)
- alert("You are not authorized to perform this action");
+  // setProces(false)
+ alert("please enter valid email and password");
 })
  )
 
@@ -55,7 +55,7 @@ else{
 	      
   return(
     <div>
-{proces?
+{/* {proces?
  <Row >
    <Col s={12} >
  <Col s={3}>
@@ -73,7 +73,7 @@ else{
  </Col>
  </Row>
 
-:(
+:( */}
      <div class="login-bg" >
     <div class="row">
       <div class="col s7"></div>
@@ -118,6 +118,6 @@ else{
   
 </div>
 
-);
-}
+)
+ }
 export default withRouter(Login) ;

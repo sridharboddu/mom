@@ -265,6 +265,7 @@ alert("sorry! cannot add minutes outside meeting scheduled time", props.history.
         else
             alert("pleace give  input")
     }
+    // console.log(minutesItems)
      return(
          <div>
          <Header/>

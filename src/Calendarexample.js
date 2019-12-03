@@ -16,6 +16,7 @@ function Calendarexample(props) {
   let [event, setEvent] = useState([])
   let [eventss, setEventss] = useState([])
   let [agendaItems, setAgendaItems] = useState([])
+  let [displayList, setDisplayList] = useState([])
   let [tokens, setTokens] = useState(localStorage.getItem("orderAppToken"))
   let [show,setShow]=useState(false)
   let[title,setTitle]=useState()
@@ -38,63 +39,46 @@ var today1=hours+':'+min;
  setTime(today1)
    setId(i)
 
-
+setAgendaItems("")
   setShow(true)
 
-  axios.get(`https://minutes-of-meeting.herokuapp.com/Create-agendaList/${i}/`,
-  { headers: { 'Content-Type': 'application/json', 'Authorization': "Token " + tokens } })
-  .then(resp => {
-      console.log(resp.data)
   
+      
 
-      axios.get("https://minutes-of-meeting.herokuapp.com/add-agenda/",
+
+    axios.get(`https://minutes-of-meeting.herokuapp.com/Create-agendaList/${i}/`,
+      { headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${tokens}` } })
+      .then(resp => {
+        axios.get("https://minutes-of-meeting.herokuapp.com/add-agenda/",
           {
-              headers: { 'Content-Type': 'application/json', 'Authorization': "Token " + tokens }
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${tokens}` }
           })
           .then(list => {
-            console.log(list.data)
-              var result = list.data.filter(ele => {
-                  return resp.data && resp.data.meeting_minutes && resp.data.agenda.indexOf(ele.id) != -1;
-              })
-              console.log(result);
-             
-              result.map(ele => {
-                  var arr = [ele]
-                  setAgendaItems(agendaItems => ([...agendaItems, arr]));
-              })
-           
-          })
-  })
-
-
-    // axios.get(`https://minutes-of-meeting.herokuapp.com/Create-agendaList/${i}/`,
-    //   { headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${token}` } })
-    //   .then(resp => {
-    //     axios.get("https://minutes-of-meeting.herokuapp.com/add-agenda/",
-    //       {
-    //         headers: { 'Content-Type': 'application/json', 'Authorization': `Token ${token}` }
-    //       })
-    //       .then(list => {
                        
-    //         console.log(list.data)
-    //         resp.data.agenda_points.map(i=>{
-    //           console.log(i)
-    //           var result = list.data.filter((j) => {
+            console.log(list.data)
+            resp.data.agenda_points.map(i=>{
+              console.log(i)
+              var result = list.data.filter((j) => {
 
-    //               return i == j.id
-    //           })
-           
-    //         setAgendaItems([...agendaItems,result])
-            
-    //       }
+                  return i == j.id
+              })
+          
+
+              result.map(ele => {
+                var arr = [ele]
+                setAgendaItems(agendaItems => ([...agendaItems, arr]));
+            })
          
-    //         )
+            
+          }
+         
+            )
 
            
-    //       }
-    //      )
-    //     }
-    //   )
+          }
+         )
+        }
+      )
      
   }
 
@@ -106,35 +90,37 @@ var today1=hours+':'+min;
   
 
   const tess = events.map((i) => {
-   
+  // console.log(i.meeting_start_date_time)
     const date = new Date(i.meeting_start_date_time);
-   
+     //console.log(date, i.meeting_name)
     date.setHours(date.getHours() - 5);
     date.setMinutes(date.getMinutes() - 30);
 
     
     const en = date;
-    
-    en.setMinutes(en.getMinutes() + i.meeting_duration);
+  // console.log(en)
+    //en.setMinutes(en.getMinutes() + i.meeting_duration);
   
     return {
       id: i.id,
       title: i.meeting_name,
-      start: date,
-      end: date
+      start: en,
+      end: en
     }
   }
 
   )
   
-
+ // console.log(agendaItems)
     return (
       <div>
         
 
         
 {
+
          show?
+         
          <div style={{margin: "0px",
           padding: "0px",
           position: "fixed",
@@ -161,10 +147,13 @@ var today1=hours+':'+min;
                     </div>
                    <p class="cal-agda">Agenda of the meeting</p>
                          <div class="cal_agnda_list">
-                  
-                           
-                            <li>No data</li>
-                            
+                  {
+                   agendaItems&&agendaItems.length?
+                           agendaItems.map((i)=>{
+                                return <li>{i[0].agenda}</li>
+                           })
+                            :( <li>No data</li>)
+                  }
                         
         
                          </div>
@@ -176,7 +165,6 @@ var today1=hours+':'+min;
 
         }
         
-      
         <div style={{ height: '560px',padding:"20px"}}>
        
           <Calendar 

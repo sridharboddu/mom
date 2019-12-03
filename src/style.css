@@ -85,7 +85,7 @@ margin-top: 150px !important;
 }
 .tym-fld{  
       padding-left: 18px;  
-      width: 150px; 
+      width: 245px !important;
      
        margin-top: 0px;   
      color: red !important;
@@ -340,3 +340,6 @@ margin-left: 140px !important;
     box-shadow: 0px 3px 6px #00000029 !important;
 }
 
+.nav-wrapper{
+    align-items: stretch;
+}

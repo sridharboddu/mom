@@ -24,20 +24,20 @@ const Header=(props)=>{
       <a href="#" class="brand-logo center"></a>      
       <ul id="nav-mobile" class="left hide-on-med-and-down">
       <SideNav trigger={  <li> <i class="material-icons" >menu</i></li>  } options={{closeOnClick: true}} >
-      
-       <div class="row">
-          <div class="col s5">
+      <Link to="/UserDashboard">      
+       <div class="row">    
+             <div class="col s5">    
+                    <img src={mom} class="sidenv-img"/>     
+                        </div>          
+                            <div class="col s7">       
+              <li> <i class="material-icons"  style={{paddingLeft:"95px"}} options={{closeOnClick: null}}>menu</i></li>       
+                               </div>       
+                               </div>    
+         </Link>
 
-           <img src={mom} class="sidenv-img"/>
-         </div>
-       
-       <div class="col s7">
-       <li> <i class="material-icons" style={{paddingLeft:"95px"}} options={{closeOnClick: false}}>menu</i></li>   
-       </div>
-       </div>
 
    <SideNavItem >
-
+ 
     
     { props.enable ?
     <div >

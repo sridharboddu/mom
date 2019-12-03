@@ -167,7 +167,7 @@ let checkhandler=(e)=>{
   if(today==date){
     if(e<=today1){
 
-document.getElementById("fld").innerHTML="pls check the time";
+document.getElementById("fld").innerHTML="please check the time";
     }
     else{
       setTime(e)
@@ -204,16 +204,7 @@ document.getElementById("fld").innerHTML="pls check the time";
  <Col s={3}>
  <Preloader flashing  />
  </Col>
- <Col s={3}>
- <Preloader flashing  />
- </Col>
- <Col s={3}>
- <Preloader flashing />
- </Col>
- <Col s={3}>
- <Preloader flashing />
- </Col>
- </Col>
+  </Col>
  </Row>
 
 :(
@@ -242,7 +233,7 @@ document.getElementById("fld").innerHTML="pls check the time";
                       
                         
                <div class="col s6"><div class="col s2 create-label2">Time:</div>
-               <div class="col s6">  
+               <div class="col s7">  
                {
                  date.length?
                <input type="time"  class="adj-inp1"      onChange={(e)=>checkhandler(e.target.value)} autoComplete="off"  required></input>
