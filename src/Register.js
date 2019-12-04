@@ -69,7 +69,7 @@ const Register=(props)=>{
       <label class="active u-label" for="first_name2">Email</label>
     </div>
     <div class="input-field inputstl padt15 col s12 t-aleft mart30">
-      <input placeholder=". . . . ."  required  class="validate u-feild" type="password"autoComplete="off" onChange={(e)=>setPassword(e.target.value)}/>
+      <input placeholder=". . . . ."  required  class="validate u-feild"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password"autoComplete="off" onChange={(e)=>setPassword(e.target.value)}/>
       <i class="material-icons prefix validate right s-color">lock</i>
       <label class="active up-label" for="first_name2">Password</label>
      
@@ -77,7 +77,7 @@ const Register=(props)=>{
 
 
     <div class="input-field inputstl padt15 col s12 t-aleft mart30">
-      <input placeholder=". . . . ."  required  class="validate u-feild" type="password"autoComplete="off" onChange={(e)=>setRpassword(e.target.value)}/>
+      <input placeholder=". . . . ."  required  class="validate u-feild"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password"autoComplete="off" onChange={(e)=>setRpassword(e.target.value)}/>
       <i class="material-icons prefix validate right s-color">lock</i>
       <label class="active urp-label1" for="first_name2">confirm password</label>
       <Link to="/Login" class="right">Already have an account?Signin</Link>

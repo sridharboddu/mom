@@ -3,6 +3,7 @@ import React,{useState,useEffect} from 'react'
 import { render } from 'react-dom';
 import { Calendar, Views,momentLocalizer } from 'react-big-calendar'
 import moment from 'moment';
+import {BrowserRouter,Route,withRouter,Link} from 'react-router-dom';
 import axios from 'axios';
 import './style.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -147,7 +148,10 @@ var today1=hours+':'+min;
                       <div class="col s12">
                     <i class="material-icons left ">access_time</i><p class="mdl-titl">{time}</p>
                     </div>
-                   <p class="cal-agda">Agenda of the meeting</p>
+                    <div > <p class="cal-agda">Agenda of the meeting</p>
+                     <button class=" btn  primary waves-effect waves-light right sub-btn mar-r">Save</button>    
+                     </div>
+                     
                          <div class="cal_agnda_list">
                   {
                    agendaItems&&agendaItems.length?
