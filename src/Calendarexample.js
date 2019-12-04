@@ -7,6 +7,7 @@ import axios from 'axios';
 import './style.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import {M} from 'materialize-css'
+import {Preloader,Row,Col} from 'react-materialize'
 
 
 const localizer = momentLocalizer(moment);
@@ -39,7 +40,7 @@ var today1=hours+':'+min;
  setTime(today1)
    setId(i)
 
-setAgendaItems("")
+
   setShow(true)
 
   
@@ -84,6 +85,7 @@ setAgendaItems("")
 
   let addHandler=()=>{
     setShow(false)
+    setAgendaItems("")
 
 
   }
@@ -152,7 +154,11 @@ setAgendaItems("")
                            agendaItems.map((i)=>{
                                 return <li>{i[0].agenda}</li>
                            })
-                            :( <li>No data</li>)
+                            :(<Row >
+   
+                              <Col s={6}>
+                              <Preloader flashing  />
+                              </Col></Row>)
                   }
                         
         
