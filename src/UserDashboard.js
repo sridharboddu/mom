@@ -195,7 +195,11 @@ function UserDashboard(props) {
         
               })
             
-            :(<li class="list">No Data</li>)
+            :(<Row >
+   
+               <Col s={6}>
+               <Preloader flashing  />
+               </Col></Row>)
             }
                                     
          </ul>
