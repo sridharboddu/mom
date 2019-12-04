@@ -63,14 +63,20 @@ var today1=hours+':'+min;
 },[])
 
 
-let selectHandler=(participantname)=>{
-  console.log(email)
+let selectHandler=()=>{
+  
+
+
     if(email){
-      
+      // let mail=email;
  let existing=displayList.filter(i=>{
-   return participantname===i;
+   console.log(i)
+   return email==i;
  })
- if(existing.length===0){
+
+ console.log(existing)
+ if(existing.length<=0){
+
    console.log(email)
   setDisplayList([...displayList,email])
   console.log(displayList)
@@ -98,7 +104,7 @@ let eventHandler = e => {
   
   e.preventDefault();
 
-if(displayList.length&&today1.length){
+if(displayList.length>=2&&today1.length){
   setProces(true)
   
  
@@ -153,7 +159,7 @@ let da_ti=date+"T"+time+":00Z";
 
 }
 else
-alert("pleace add Participants")
+alert("pleace add Participants more than one")
  }
 
 console.log(today1)
