@@ -148,10 +148,8 @@ var today1=hours+':'+min;
                       <div class="col s12">
                     <i class="material-icons left ">access_time</i><p class="mdl-titl">{time}</p>
                     </div>
-                    <div > <p class="cal-agda">Agenda of the meeting</p>
-                     <button class=" btn  primary waves-effect waves-light right sub-btn mar-r">Save</button>    
-                     </div>
-                     
+                    
+                   <p class="cal-agda">Agenda of the meeting</p>   
                          <div class="cal_agnda_list">
                   {
                    agendaItems&&agendaItems.length?
